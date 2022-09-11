@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Bluetooth Connection</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mac_address">MAC ADDRESS:</string>
+    <string name="rssi">RSSI:</string>
+    <string name="scan_record">scan Record:</string>
+    <string name="manufacturer_specific_data">Manufacturer Specific Data:</string>
+    <string name="advertise_flags">Advertise Flags:</string>
+    <string name="uuid">UUID:</string>
+    <string name="fetching_device_info">Fetching Device Info</string>
+    <string name="ble_devices">BLE Devices</string>
+    <string name="scan_now">Scan Now</string>
+    <string name="ble_scan">BLE Scan</string>
+    <string name="characteristic_service">Characteristic service:</string>
+    <string name="not_connectable">Not Connectable</string>
+    <string name="connectable">Connectable</string>
+</resources>
