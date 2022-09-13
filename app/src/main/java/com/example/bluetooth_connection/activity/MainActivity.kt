@@ -61,6 +61,31 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun checkPermission(): Boolean {
+        if (ActivityCompat.checkSelfPermission(
+                this@MainActivity,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestLocationPermission()
+            return false
+        }
+
+        /// check scanning permission
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            if (ActivityCompat.checkSelfPermission(
+                    this@MainActivity,
+                    Manifest.permission.BLUETOOTH_SCAN
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                requestLocationPermission()
+                return false
+            }
+        }
+
+        return true
+    }
+
     @SuppressLint("NotifyDataSetChanged")
     private fun setVerticalRecyclerView(context: Context, recyclerView: RecyclerView) {
         myAdapter = ScanResultAdapter(context)
@@ -207,5 +232,22 @@ class MainActivity : AppCompatActivity() {
                 Log.e(myTag, "${it.key} = ${it.value}")
             }
         }
+
+    /**
+     *
+     * JUnit4 Testing function
+     *
+     */
+    fun checkRecyclerViewInitialize(): Boolean {
+        return devicesRl != null
+    }
+
+    fun checkAdapter(): Boolean {
+        return myAdapter != null
+    }
+
+    fun checkDeviceData(): Boolean {
+        return arrayList.isNotEmpty()
+    }
 }
 
